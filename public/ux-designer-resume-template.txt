@@ -1,0 +1,44 @@
+UX DESIGNER RESUME — ATS-FRIENDLY TEMPLATE
+============================================
+
+YOUR NAME
+UX Designer · City, Country · email@example.com · linkedin.com/in/you · yourportfolio.com
+
+PROFESSIONAL SUMMARY
+--------------------
+UX Designer with X years of experience designing user-centered digital products across [industries].
+Skilled in user research, wireframing, prototyping, usability testing, and design systems.
+Proven track record of improving [conversion / task completion / NPS] by X% through evidence-based design.
+
+CORE SKILLS
+-----------
+User Research · Information Architecture · Wireframing · Prototyping · Usability Testing
+Interaction Design · Visual Design · Design Systems · Accessibility (WCAG 2.1)
+Figma · Sketch · Adobe XD · Maze · Hotjar · HTML/CSS basics
+
+EXPERIENCE
+----------
+Senior UX Designer — Company Name                                         MM/YYYY – Present
+• Led end-to-end redesign of [product], improving task success rate from X% to Y%.
+• Ran 20+ moderated usability tests; synthesized findings into a prioritized backlog.
+• Built and maintained a Figma design system adopted by 4 product squads.
+
+UX Designer — Company Name                                                MM/YYYY – MM/YYYY
+• Shipped [feature] used by Xk monthly active users; reduced support tickets by Y%.
+• Partnered with engineering and PM on discovery, definition, and delivery.
+
+EDUCATION
+---------
+B.A./B.Sc. in [Field] — University Name, YYYY
+
+CERTIFICATIONS (optional)
+-------------------------
+NN/g UX Certification · Google UX Design Certificate
+
+ATS TIPS
+--------
+1. Use a single-column layout. No tables, columns, text boxes, or images.
+2. Use standard section headings: Summary, Skills, Experience, Education.
+3. Mirror keywords from the job description (e.g., "user research", "Figma", "design system").
+4. Save and submit as .pdf AND keep a .docx backup.
+5. Quantify outcomes — every bullet should answer "so what?"
