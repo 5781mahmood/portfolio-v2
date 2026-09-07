@@ -1,26 +1,33 @@
-import AnimatedText from "./AnimatedText";
-
 const Footer = () => {
   return (
-    <footer className="border-t border-border/30 section-padding py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-muted-foreground font-body text-sm">
-          © 2025 Mahmood Sultan. All rights reserved.
+    <footer className="border-t border-border px-5 py-8 md:px-10 lg:px-14">
+      <div className="page-width flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Mahmood Sultan
         </p>
-
-        <div className="flex items-center gap-8">
-          <AnimatedText
-            text="LinkedIn"
-            as="a"
+        <div className="flex gap-5">
+          <a
             href="https://www.linkedin.com/in/mahmoodsultan5/"
-            className="text-foreground/70 font-display font-semibold text-sm tracking-wider uppercase hover:text-primary transition-colors duration-300"
-          />
-          <AnimatedText
-            text="Email"
-            as="a"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            LinkedIn
+          </a>
+          <a
             href="mailto:5781mahmood@gmail.com"
-            className="text-foreground/70 font-display font-semibold text-sm tracking-wider uppercase hover:text-primary transition-colors duration-300"
-          />
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            Email
+          </a>
+          <a
+            href="https://github.com/5781mahmood"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground"
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </footer>

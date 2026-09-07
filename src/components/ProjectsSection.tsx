@@ -1,140 +1,138 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import AnimatedText from "./AnimatedText";
-import projectCampus from "@/assets/project-campus.png";
-import projectCalorie from "@/assets/project-calorie.png";
-import projectPlatformer from "@/assets/project-platformer.png";
-import projectLuka from "@/assets/project-luka.png";
-import projectHorror from "@/assets/project-horror.jpg";
 
-const projects = [
+type CaseStudy = {
+  title: string;
+  meta: string;
+  description: string;
+  href?: string;
+};
+
+type OtherProject = {
+  title: string;
+  meta: string;
+  description: string;
+};
+
+const caseStudies: CaseStudy[] = [
+  {
+    title: "My Code Club",
+    meta: "Curriculum Developer & Junior Backend Developer · Jul 2026–Present",
+    description:
+      "Backend and curriculum work on a live learning platform — architecture contributions, payments debugging, and security hardening.",
+  },
   {
     title: "Campus Navigation System",
-    subtitle: "UX Research & Prototype",
-    description: "Conducted user interviews and research to design a wayfinding system for UTM. Built wireframes in Figma, physical prototypes with 3D printing and laser cutting.",
-    tech: ["Figma", "UX Research", "3D Printing", "Prototyping"],
-    year: "2025",
-    image: projectCampus,
-    imageClass: "object-contain bg-muted p-4",
+    meta: "Independent UX project · Sep–Nov 2025",
+    description:
+      "Conducted user interviews and research to design a wayfinding system for UTM. Built wireframes in Figma, physical prototypes with 3D printing and laser cutting.",
     href: "/projects/campus-navigation",
   },
   {
-    title: "Calorie Tracking App",
-    subtitle: "Python Desktop Application",
-    description: "Full-featured desktop app for tracking meals, calories, and nutrition data with database storage, data visualization charts, and visual progress tracking.",
-    tech: ["Python", "Tkinter", "SQLite", "Data Viz"],
-    year: "2024–25",
-    image: projectCalorie,
-    imageClass: "object-contain bg-muted",
-  },
-  {
-    title: "100-Level Platformer",
-    subtitle: "Python Game Development",
-    description: "Custom-designed platformer game with 100 unique levels, custom sprites and pixel art, player physics, collision detection, and level progression.",
-    tech: ["Python", "Pygame", "Pixel Art", "Game Design"],
-    year: "2024",
-    image: projectPlatformer,
-    imageClass: "object-contain bg-muted",
-  },
-  {
-    title: "Luka Dončić Fan Site",
-    subtitle: "Web Development Project",
-    description: "8-page responsive website showcasing player statistics, achievements, and media with clean navigation and structured layouts.",
-    tech: ["HTML", "CSS", "JavaScript", "Web Design"],
-    year: "2023–24",
-    image: projectLuka,
-    imageClass: "object-contain bg-muted",
-  },
-  {
-    title: "3D Horror Game",
-    subtitle: "Unity Game Development",
-    description: "A small immersive horror experience built in Unity with custom 3D assets created in Maya and Blender. Built environment models, lighting, sound design, movement systems, and interactive elements from scratch.",
-    tech: ["Unity", "Maya", "Blender", "Game Design", "3D Modeling"],
-    year: "2024–25",
-    image: projectHorror,
-    imageClass: "object-cover",
+    title: "Turtle Island Charity",
+    meta: "CCT341 team project · Jul–Aug 2026",
+    description:
+      "Consulting engagement focused on the client Services page and gallery — iteration, collaboration, and delivery with the project team.",
   },
 ];
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 60 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
-      className="group relative bg-card rounded-2xl overflow-hidden border border-border/50"
-    >
-      {/* Project screenshot with overlay */}
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-110 ${project.imageClass}`}
-        />
-        <div className="absolute inset-0 bg-background/40 group-hover:bg-background/20 transition-colors duration-500" />
-        <span className="absolute top-4 right-4 text-xs font-body text-foreground bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full z-10">
-          {project.year}
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className="p-6 md:p-8">
-        <p className="text-primary text-xs font-body tracking-[0.2em] uppercase mb-2">{project.subtitle}</p>
-        <h3 className="font-display font-bold text-xl md:text-2xl mb-3">
-          <AnimatedText text={project.title} />
-        </h3>
-        <p className="text-muted-foreground font-body text-sm leading-relaxed mb-4">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.map((t) => (
-            <span key={t} className="text-xs font-body text-foreground/60 bg-secondary px-3 py-1 rounded-full">
-              {t}
-            </span>
-          ))}
-        </div>
-        {"href" in project && project.href ? (
-          <Link
-            to={project.href as string}
-            className="inline-flex items-center gap-1 text-sm font-display font-semibold uppercase tracking-wider text-primary hover:underline"
-          >
-            Read case study →
-          </Link>
-        ) : null}
-      </div>
-    </motion.div>
-  );
-};
+const otherProjects: OtherProject[] = [
+  {
+    title: "Calorie Tracking App",
+    meta: "Python Desktop Application · 2024–25",
+    description:
+      "Full-featured desktop app for tracking meals, calories, and nutrition data with database storage, data visualization charts, and visual progress tracking.",
+  },
+  {
+    title: "100-Level Platformer",
+    meta: "Python Game Development · 2024",
+    description:
+      "Custom-designed platformer game with 100 unique levels, custom sprites and pixel art, player physics, collision detection, and level progression.",
+  },
+];
 
 const ProjectsSection = () => {
-  const headerRef = useRef(null);
-  const headerInView = useInView(headerRef, { once: true });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="projects" className="section-padding">
-      <div className="max-w-7xl mx-auto">
+    <section id="work" className="section-padding border-b border-border">
+      <div className="page-width" ref={ref}>
         <motion.div
-          ref={headerRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
+          initial={{ opacity: 0, y: 12 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4 }}
         >
-          <p className="text-primary text-xs font-body tracking-[0.3em] uppercase mb-3">Featured Work</p>
-          <h2 className="font-display font-extrabold text-4xl md:text-6xl tracking-tight">
-            <AnimatedText text="Projects" />
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            Selected work
           </h2>
+          <p className="mt-3 max-w-xl text-base text-muted-foreground">
+            Three case studies. Full write-ups for MCC and Turtle Island are next; Campus
+            Navigation is live.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
-          ))}
+        <ul className="mt-10 divide-y divide-border border-y border-border">
+          {caseStudies.map((project, index) => {
+            const body = (
+              <>
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{project.meta}</p>
+                </div>
+                <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+                  {project.description}
+                </p>
+                {project.href ? (
+                  <span className="mt-3 inline-block text-sm font-medium text-primary">
+                    Read case study →
+                  </span>
+                ) : (
+                  <span className="mt-3 inline-block text-sm text-muted-foreground">
+                    Case study coming next
+                  </span>
+                )}
+              </>
+            );
+
+            return (
+              <motion.li
+                key={project.title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.35, delay: 0.06 * index }}
+              >
+                {project.href ? (
+                  <Link to={project.href} className="block py-6 transition-opacity hover:opacity-80">
+                    {body}
+                  </Link>
+                ) : (
+                  <div className="py-6">{body}</div>
+                )}
+              </motion.li>
+            );
+          })}
+        </ul>
+
+        <div className="mt-14">
+          <h3 className="text-lg font-semibold tracking-tight text-foreground">Other projects</h3>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Shorter builds. CCT416 will be added once its description is ready.
+          </p>
+          <ul className="mt-6 space-y-6">
+            {otherProjects.map((project) => (
+              <li key={project.title}>
+                <p className="font-medium text-foreground">{project.title}</p>
+                <p className="mt-0.5 text-sm text-muted-foreground">{project.meta}</p>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                  {project.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

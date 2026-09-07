@@ -1,10 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import AnimatedText from "./AnimatedText";
 
 const ContactSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,69 +13,73 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-padding">
-      <div className="max-w-4xl mx-auto" ref={ref}>
+      <div className="page-width" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.4 }}
         >
-          <p className="text-primary text-xs font-body tracking-[0.3em] uppercase mb-3">Get in Touch</p>
-          <h2 className="font-display font-extrabold text-4xl md:text-6xl tracking-tight mb-4">
-            <AnimatedText text="Let's Connect" />
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            Contact
           </h2>
-          <p className="text-muted-foreground font-body text-lg">
-            Have a question or want to work together? Drop me a message.
+          <p className="mt-3 max-w-md text-base text-muted-foreground">
+            Have a question or want to work together? Drop me a message — or email{" "}
+            <a
+              href="mailto:5781mahmood@gmail.com"
+              className="text-foreground underline underline-offset-2 hover:text-primary"
+            >
+              5781mahmood@gmail.com
+            </a>
+            .
           </p>
         </motion.div>
 
         <motion.form
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.06 }}
           onSubmit={handleSubmit}
-          className="space-y-6"
+          className="mt-10 max-w-md space-y-4"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label className="block">
+            <span className="mb-1.5 block text-sm text-muted-foreground">Name</span>
             <input
               type="text"
-              placeholder="Your Name"
-              aria-label="Your name"
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-6 py-4 bg-secondary border border-border/50 rounded-xl font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+              className="w-full border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary"
             />
+          </label>
+          <label className="block">
+            <span className="mb-1.5 block text-sm text-muted-foreground">Email</span>
             <input
               type="email"
-              placeholder="Your Email"
-              aria-label="Your email address"
               required
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-6 py-4 bg-secondary border border-border/50 rounded-xl font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300"
+              className="w-full border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary"
             />
-          </div>
-          <textarea
-            placeholder="Your Message"
-            aria-label="Your message"
-            required
-            rows={5}
-            value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full px-6 py-4 bg-secondary border border-border/50 rounded-xl font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors duration-300 resize-none"
-          />
-          <div className="text-center">
-            <button
-              type="submit"
-              className="px-10 py-4 bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wider uppercase rounded-full hover:scale-105 transition-transform duration-300 glow-primary"
-            >
-              Send Message
-            </button>
-            <p className="mt-3 text-xs font-body text-muted-foreground/70">
-              Opens your default email app with this message pre-filled.
-            </p>
-          </div>
+          </label>
+          <label className="block">
+            <span className="mb-1.5 block text-sm text-muted-foreground">Message</span>
+            <textarea
+              required
+              rows={5}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full resize-y border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+            />
+          </label>
+          <button
+            type="submit"
+            className="bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Send message
+          </button>
+          <p className="text-xs text-muted-foreground">
+            Opens your default email app with this message pre-filled.
+          </p>
         </motion.form>
       </div>
     </section>

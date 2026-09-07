@@ -4,47 +4,48 @@
 
 @layer base {
   :root {
-    --background: 225 25% 4%;
-    --foreground: 0 0% 93%;
+    /* Warm paper + deep amber — technical, not flashy */
+    --background: 40 20% 98%;
+    --foreground: 30 10% 12%;
 
-    --card: 225 20% 7%;
-    --card-foreground: 0 0% 93%;
+    --card: 40 25% 99%;
+    --card-foreground: 30 10% 12%;
 
-    --popover: 225 20% 7%;
-    --popover-foreground: 0 0% 93%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 12%;
 
-    --primary: 160 85% 45%;
-    --primary-foreground: 225 25% 4%;
+    --primary: 28 72% 36%;
+    --primary-foreground: 40 20% 98%;
 
-    --secondary: 225 15% 12%;
-    --secondary-foreground: 0 0% 80%;
+    --secondary: 36 14% 93%;
+    --secondary-foreground: 30 10% 18%;
 
-    --muted: 225 15% 12%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 36 12% 93%;
+    --muted-foreground: 30 6% 38%;
 
-    --accent: 160 85% 45%;
-    --accent-foreground: 225 25% 4%;
+    --accent: 32 40% 92%;
+    --accent-foreground: 28 72% 28%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 46%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 225 15% 15%;
-    --input: 225 15% 15%;
-    --ring: 160 85% 45%;
+    --border: 32 10% 84%;
+    --input: 32 10% 84%;
+    --ring: 28 72% 36%;
 
-    --radius: 0.5rem;
+    --radius: 0.125rem;
 
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-display: "Source Sans 3", "Helvetica Neue", sans-serif;
+    --font-body: "Source Sans 3", "Helvetica Neue", sans-serif;
 
-    --sidebar-background: 225 20% 6%;
-    --sidebar-foreground: 0 0% 93%;
-    --sidebar-primary: 160 85% 45%;
-    --sidebar-primary-foreground: 225 25% 4%;
-    --sidebar-accent: 225 15% 12%;
-    --sidebar-accent-foreground: 0 0% 93%;
-    --sidebar-border: 225 15% 15%;
-    --sidebar-ring: 160 85% 45%;
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 30 10% 12%;
+    --sidebar-primary: 28 72% 36%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 36 14% 93%;
+    --sidebar-accent-foreground: 30 10% 12%;
+    --sidebar-border: 32 10% 84%;
+    --sidebar-ring: 28 72% 36%;
   }
 }
 
@@ -54,52 +55,49 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
   }
 
   ::selection {
-    background: hsl(160 85% 45% / 0.3);
-    color: hsl(0 0% 100%);
+    background: hsl(28 72% 36% / 0.18);
+    color: hsl(30 10% 12%);
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(160 85% 45%), hsl(180 70% 55%));
-  }
-
-  .glow-primary {
-    box-shadow: 0 0 40px -10px hsl(160 85% 45% / 0.4);
-  }
-
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-24 md:py-32;
+    @apply px-5 md:px-10 lg:px-14 py-16 md:py-24;
+  }
+
+  .page-width {
+    @apply mx-auto w-full max-w-3xl;
   }
 }
 
-/* Smooth cursor-follower glow */
 html {
-  scroll-behavior: auto; /* Lenis handles scroll */
+  scroll-behavior: auto;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(225 25% 4%);
+  background: hsl(40 20% 98%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(225 15% 20%);
-  border-radius: 3px;
+  background: hsl(32 10% 72%);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(160 85% 45% / 0.5);
+  background: hsl(28 72% 36% / 0.55);
 }

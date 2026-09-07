@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import AnimatedText from "./AnimatedText";
+import { useEffect, useState } from "react";
 
 const navLinks = [
-  { label: "Projects", href: "#projects" },
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -13,74 +11,84 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border/30" : ""
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 ${
+          scrolled ? "border-b border-border bg-background" : "bg-background/0"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex items-center justify-between h-16 md:h-20">
-          <a href="#hero" className="font-display font-extrabold text-lg tracking-tight">
-            MS<span className="text-primary">.</span>
+        <div className="page-width flex h-14 items-center justify-between">
+          <a href="#hero" className="text-[15px] font-semibold tracking-tight text-foreground">
+            Mahmood Sultan
           </a>
 
-          {/* Desktop */}
-          <div className="hidden md:flex items-center gap-8">
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="font-display font-semibold text-sm tracking-wider uppercase text-foreground/70 hover:text-primary transition-colors duration-300"
+                className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
               >
-                <AnimatedText text={link.label} />
+                {link.label}
               </a>
             ))}
-          </div>
+          </nav>
 
-          {/* Mobile toggle */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            type="button"
+            className="flex h-10 w-10 items-center justify-center md:hidden"
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
-            <span className={`w-6 h-[2px] bg-foreground transition-transform duration-300 ${mobileOpen ? "rotate-45 translate-y-[5px]" : ""}`} />
-            <span className={`w-6 h-[2px] bg-foreground transition-opacity duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`w-6 h-[2px] bg-foreground transition-transform duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[5px]" : ""}`} />
+            <span className="flex w-5 flex-col gap-1.5">
+              <span
+                className={`h-px w-full bg-foreground transition-transform ${
+                  mobileOpen ? "translate-y-[3.5px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`h-px w-full bg-foreground transition-opacity ${
+                  mobileOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`h-px w-full bg-foreground transition-transform ${
+                  mobileOpen ? "-translate-y-[3.5px] -rotate-45" : ""
+                }`}
+              />
+            </span>
           </button>
         </div>
-      </motion.nav>
+      </header>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="font-display font-extrabold text-3xl tracking-tight text-foreground hover:text-primary transition-colors duration-300"
-              >
-                <AnimatedText text={link.label} />
-              </a>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mobileOpen ? (
+        <div className="fixed inset-0 z-40 flex flex-col justify-center gap-5 bg-background px-5 md:hidden">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="text-3xl font-semibold tracking-tight text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ) : null}
     </>
   );
 };
