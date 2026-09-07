@@ -3,6 +3,8 @@ import { useRef } from "react";
 
 const experience = [
   { role: "Curriculum Developer & Junior Backend Developer", company: "My Code Club", period: "Jul 2026 – Present" },
+  { role: "Operations & Customer Experience Lead", company: "Riipen Labs — IlluminEd Tutoring Inc.", period: "Aug 2026" },
+  { role: "Web Developer & UX (CCT341 client project)", company: "Turtle Island Charity", period: "Jul – Aug 2026" },
   { role: "Internal Relations Executive", company: "UTMMSA", period: "Jul 2025 – Apr 2026" },
   { role: "Technology Mentor", company: "Cyber Seniors", period: "Jul 2022 – Present" },
   { role: "Manufacturing Operator", company: "Mondelēz International", period: "May – Aug 2024" },
