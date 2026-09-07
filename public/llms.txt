@@ -1,12 +1,12 @@
 # Mahmood Sultan
 
-> Portfolio of Mahmood Sultan — UX/UI Designer, Web Developer, and IT Student at the University of Toronto.
+> Portfolio of Mahmood Sultan — third-year CCIT & TCS student at the University of Toronto Mississauga, open to tech internships and co-ops.
 
-Mahmood Sultan is a UX/UI designer and developer based in Toronto. This portfolio showcases selected design and development projects, background, and contact information.
+Mahmood Sultan is a student developer and designer based in Toronto. This portfolio showcases selected case studies, background, and contact information.
 
 ## Pages
 
 - [Home](/): Hero introduction to Mahmood Sultan.
-- [About](/#about): Background, education, and skills.
-- [Projects](/#projects): Featured work including Luka Doncic Fan Website, 100 Level Platformer Game, Calorie Tracking App, and Campus Navigation System.
+- [About](/#about): Background, education, and experience.
+- [Selected work](/#work): Case studies for My Code Club, Campus Navigation System (4-person team project), and Turtle Island Charity, plus shorter projects including the Calorie Tracking App and 100-Level Platformer Game.
 - [Contact](/#contact): Get in touch with Mahmood.

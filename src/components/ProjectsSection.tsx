@@ -24,9 +24,9 @@ const caseStudies: CaseStudy[] = [
   },
   {
     title: "Campus Navigation System",
-    meta: "Independent UX project · Sep–Nov 2025",
+    meta: "4-person team UX project · Sep–Nov 2025",
     description:
-      "Conducted user interviews and research to design a wayfinding system for UTM. Built wireframes in Figma, physical prototypes with 3D printing and laser cutting.",
+      "Team project designing a wayfinding system for UTM — user interviews and research, wireframes in Figma, and physical prototypes built with 3D printing and laser cutting.",
     href: "/projects/campus-navigation",
   },
   {

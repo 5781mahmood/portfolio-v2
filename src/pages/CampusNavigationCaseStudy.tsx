@@ -6,9 +6,9 @@ import projectCampus from "@/assets/project-campus.png";
 
 const TITLE = "Campus Navigation UX Case Study | Mahmood Sultan";
 const DESCRIPTION =
-  "UX case study: designing a wayfinding system for UTM — research, wireframes, 3D-printed prototyping, and a mobile prototype.";
-const URL = "https://mahmoodsultan.lovable.app/projects/campus-navigation";
-const OG_IMAGE = "https://mahmoodsultan.lovable.app/og-campus-navigation.png";
+  "UX case study: a four-person team designing a wayfinding system for UTM — research, wireframes, 3D-printed prototyping, and a mobile prototype.";
+const URL = "https://mahmoodsultan.com/projects/campus-navigation";
+const OG_IMAGE = "https://mahmoodsultan.com/og-campus-navigation.png";
 
 const useDocumentMeta = () => {
   useEffect(() => {
@@ -161,7 +161,7 @@ const CampusNavigationCaseStudy = () => {
     <main className="min-h-screen bg-background">
       <article className="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <Link
-          to="/#projects"
+          to="/#work"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-12"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -181,8 +181,9 @@ const CampusNavigationCaseStudy = () => {
             Campus Navigation: A UX Case Study
           </h1>
           <p className="text-muted-foreground font-body text-lg md:text-xl leading-relaxed">
-            Designing a wayfinding system for the University of Toronto
-            Mississauga — from field research to interactive mobile prototype.
+            A four-person team project designing a wayfinding system for the
+            University of Toronto Mississauga — from field research to
+            interactive mobile prototype.
           </p>
         </motion.header>
 
@@ -204,8 +205,8 @@ const CampusNavigationCaseStudy = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 pb-16 border-b border-border/50">
           {[
             { label: "Role", value: "UX Researcher & Designer" },
-            { label: "Duration", value: "8 weeks" },
-            { label: "Team", value: "4 students" },
+            { label: "Timeline", value: "Sep–Nov 2025" },
+            { label: "Team", value: "4-person student team" },
             { label: "Tools", value: "Figma, 3D Print, Laser Cut" },
           ].map((item) => (
             <div key={item.label}>
@@ -225,8 +226,8 @@ const CampusNavigationCaseStudy = () => {
             of Toronto Mississauga community routinely struggle to find their
             way between buildings, lecture halls, and shared spaces. Existing
             campus maps are static, dense with information, and rarely match the
-            mental model of someone standing at a fork in the path with three
-            minutes until class.
+            mental model of someone standing at a fork in the path with minutes
+            to spare before class.
           </p>
           <p>
             Our team set out to redesign the wayfinding experience from the
@@ -237,10 +238,10 @@ const CampusNavigationCaseStudy = () => {
 
         <Section eyebrow="02 — User Research" title="Talking to people on the path">
           <p>
-            We conducted twelve semi-structured user interviews with first-year
+            We conducted semi-structured user interviews with first-year
             students, transfer students, and campus visitors, paired with
-            on-site shadowing during the first two weeks of term. Three insights
-            shaped the rest of the project:
+            on-site shadowing early in the term. A few insights shaped the rest
+            of the project:
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
@@ -268,8 +269,8 @@ const CampusNavigationCaseStudy = () => {
           <p>
             Mid-fidelity Figma wireframes added turn-by-turn cards, landmark
             cues ("turn right at the Davis Building atrium"), and an estimated
-            walking time that adjusted for elevation. We iterated through three
-            rounds of internal critique before testing.
+            walking time that adjusted for elevation. We iterated through
+            several rounds of internal critique before testing.
           </p>
         </Section>
 
@@ -286,15 +287,17 @@ const CampusNavigationCaseStudy = () => {
 
         <Section eyebrow="05 — Final Prototype" title="A mobile-first wayfinding companion">
           <p>
-            The final interactive Figma prototype focused on three screens: a
-            search-first home, a turn-by-turn route view anchored to landmarks
-            rather than street names, and a "you've arrived" confirmation that
-            doubled as a room-level guide for unfamiliar buildings.
+            The final interactive Figma prototype focused on a small set of
+            screens: a search-first home, a turn-by-turn route view anchored to
+            landmarks rather than street names, and a "you've arrived"
+            confirmation that doubled as a room-level guide for unfamiliar
+            buildings.
           </p>
           <p>
-            In post-test interviews, eight of nine participants completed a
-            cold-start "find this lecture hall" task in under ninety seconds —
-            an improvement of more than 40% over the baseline tool.
+            In post-test sessions, most participants completed a cold-start
+            "find this lecture hall" task noticeably faster than with the
+            existing campus map, and described the landmark-based directions as
+            easier to trust when they were unsure of their location.
           </p>
         </Section>
 
@@ -314,7 +317,7 @@ const CampusNavigationCaseStudy = () => {
 
         <div className="pt-12 border-t border-border/50">
           <Link
-            to="/#projects"
+            to="/#work"
             className="inline-flex items-center gap-2 text-sm font-display font-semibold uppercase tracking-wider text-primary hover:underline"
           >
             <ArrowLeft className="w-4 h-4" />
